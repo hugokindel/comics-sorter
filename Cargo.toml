@@ -1,0 +1,11 @@
+[package]
+name = "comics_sort"
+version = "1.0.0"
+authors = ["KINDEL Hugo <me@hugokindel.xyz>"]
+edition = "2018"
+
+[dependencies]
+clap = "2.33.3"
+regex = "1.5.4"
+walkdir = "2.3.2"
+lazy_static = "1.4.0"
