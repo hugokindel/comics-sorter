@@ -1,5 +1,5 @@
 [package]
-name = "comics_sort"
+name = "comics"
 version = "1.0.0"
 authors = ["KINDEL Hugo <me@hugokindel.xyz>"]
 edition = "2018"
@@ -9,3 +9,9 @@ clap = "2.33.3"
 regex = "1.5.4"
 walkdir = "2.3.2"
 lazy_static = "1.4.0"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+tokio = { version = "1", features = ["full"] }
+html_parser = "0.6.2"
+webhook = "1.0.0"
+bytes = "1"
+glob = "0.3.0"
