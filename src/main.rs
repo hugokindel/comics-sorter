@@ -106,8 +106,6 @@ fn handle_watermark<P: AsRef<Path>>(file_path: P, folder_path: P) -> std::io::Re
         let str = filename.to_str().unwrap();
         let str_low = str.to_lowercase();
 
-        println!("{}", str_low);
-
         if (str_low.starts_with("z") || (str_low.starts_with("-") && str_low.ends_with("-.jpg")) || str_low.starts_with("xtag01") || str_low.starts_with("xxx_") || str_low.starts_with("x-tag")) && !str_low.contains(" 000-") && str_low.ends_with(".jpg") {
             let extraction_path = extraction_path.as_path();
             let watermark_path = path;
