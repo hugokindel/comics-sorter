@@ -100,8 +100,8 @@ fn handle_watermark<P: AsRef<Path>>(file_path: P, folder_path: P) -> std::io::Re
 
     let mut had_watermark = false;
 
-    for entry in glob(extraction_path.as_path().to_str().unwrap()). {
-        let path = entry.path();
+    for entry in fs::read_dir(extraction_path.as_path()).unwrap() {
+        let path = entry.unwrap().path();
         let filename = path.file_name().unwrap();
         let str = filename.to_str().unwrap();
         let str_low = str.to_lowercase();
@@ -224,6 +224,9 @@ fn download_file<P: AsRef<Path>>(body: &str, output_path: P, client: &Client) ->
     let mut start_bytes = body.find("https://weekly2.comicfiles.ru/").unwrap_or(0);
     if start_bytes == 0 {
         start_bytes = body.find("https://getcomics.info/run.php-urls/").unwrap_or(0);
+    }
+    if start_bytes == 0 {
+        start_bytes = body.find("https://getcomics.info/links.php/").unwrap_or(0);
     }
     let part = &body[start_bytes..];
     let end_bytes = part.find("\"").unwrap_or(part.len());
